@@ -1,14 +1,14 @@
-title: Hermann Müller
+title: Jimmy Walker
 is-pinned-card: true 
 tags: advisor, centrist
-card-image: img/portraits/MüllerHermann.jpg
+card-image: img/portraits/JimmyWalker.jpg
 new-page: true
 view-if: muller_advisor = 1
 
-= Herman Müller
+= Jimmy Walker
 
 
-Müller is a former [? if chancellor = "Müller": and current ?] Chancellor, and is a long-time Social Democratic leader.
+Jimmy Walker is the former mayor of NYC and a close Smith confidante. Although he was forced to resign during a corruption scandal soon after his election, Walker wields massive influence within the Democratic outfit known as Tammany Hall, the corruption-based vehicle by which many political careers are made or broken in New York City, and which is currently embroiled in a massive feud with current mayor Fiorello La Guardia. He's probably the man with the closest ear to the President.
 
 - @coalition
 - @toleration
