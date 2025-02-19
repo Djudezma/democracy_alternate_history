@@ -20,12 +20,12 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+Democrat position: [? if dem_in_government : in government - ?][? if dem_in_government == 0 : opposition - ?]
+[? if dem_prog_coalition and dem_in_government: Corporate Front ?][? if dem_prog_fl_coalition and dem_in_government: Grand Coalition ?][? if dem_fl_coalition and dem_in_government: Jackson Coalition ?][? if dem_fl_cpusa_coalition and dem_in_government: Popular Front ?][? if dem_cpusa_coalition and dem_in_government: Locofoco Coalition ?][? if in_dem_majority and dem_in_government: Democratic majority ?][? if in_rep_majority and dem_in_government == 0 : Republican majority ?][? if rep_dem_coalition and dem_in_government: Establishment Coalition ?][? if rep_prog_coalition and dem_in_government == 0: Bull Moose Coalition ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if dem_in_government and not in_dem_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if dem_in_government and (dem_cpusa_coalition or dem_fl_cpusa_coalition): CPUSA coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
@@ -33,29 +33,24 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 President: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Speaker of the House: [+ chancellor +] ([+ chancellor_party +])
 
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
+{!<span class="tooltip-text" title="Democratic Party">DEM</span>!}: [+ dem_r +]%
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Progressive Farmer-Labor Party">PFLP</span>!}: [+ pflp_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
-# 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
+{!<span class="tooltip-text" title="Communist Party of the United States of America">CPUSA</span>!}: [+ cpusa_r +]%
 # 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
+{!<span class="tooltip-text" title="Progressive Party">PROG</span>!}: [+ prog_r +]%
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="Republican Party">REP</span>!}: [+ rep_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
-Others: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+
+[? if dem_in_government = 1 : Budget: [+ budget +] ?]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
@@ -76,76 +71,68 @@ Economic growth: [+ economic_growth_2 +]%
 = Inter-party Relations
 
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+{!<span class="tooltip-text" title="Progressive Farmer-Labor Party">PFLP</span>!}: [+ pflp_relation : relationships +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of the United States of America">CPUSA</span>!}: [+ cpusa_relation : relationships +]
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
+{!<span class="tooltip-text" title="Progressive Party">PROG</span>!}: [+ prog_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+{!<span class="tooltip-text" title="Republican Party">REP</span>!}: [+ rep_relation : relationships +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+= Internal Factions of the Democratic Party
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+{!<span class="tooltip-text" title="Farmer Democrats is interested in ...">Farmers</span>!} strength: [+ farm_strength : strength +], dissent: [+ farm_dissent : dissent +]
 
-= Internal Factions of the SPD
+{!<span class="tooltip-text" title="Establishment Democrats are a faction of ...">Center</span>!} strength: [+ estab_strength : strength +], dissent: [+ estab_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The Labor Democrats' goals are ...">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="Southern Democrats are ...">Southern</span>!} strength: [+ south_strength : strength +], dissent: [+ south_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
-
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
-
-[? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+{!<span class="tooltip-text" title="Business Democrats are interested in ...">Business</span>!} strength: [+ busin_strength : strength +], dissent: [+ busin_dissent : dissent +]
 
 
 @paramilitaries
 on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
+if (Q.db_strength) {
+    Q.db_strength_2 = Q.db_strength.toFixed(1);
 }
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
+if (Q.rfo_strength) {
+    Q.rfo_strength_2 = Q.rfo_strength.toFixed(1);
 }
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
+if (Q.ba_strength) {
+    Q.ba_strength_2 = Q.ba_strength.toFixed(1);
 }
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
+if (Q.wa_strength) {
+    Q.wa_strength_2 = Q.wa_strength.toFixed(1);
 }
 !}
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Democracy Brigade Andrew Jackson is a popular organization for defending democracy affiliated with the Democratic Party.">Democracy Brigade</span>!} Strength: [+ db_strength_2 +] thousand
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Democracy Brigade Militarization: [+ db_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The RFO (Red Fighter's Organization) is a communist group associated with the CPUSA.">RFO</span>!} Strength: [+ rfo_strength_2 +] thousand
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+RFB Militarization: [+ rfo_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Bonus Army 1917 is a right-wing organization of war veterans associated with the Progressive Party.">Bonus Army</span>!} Strength: [+ ba_strength_2 +] thousand
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+Stahlhelm Militarization: [+ ba_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Wide Awakes are the Republican paramilitary.">Wide Awakes</span>!} Strength: [+ wa_strength_2 +] thousand
 
-SA Militarization: [+ sa_militancy : militancy +]
+SA Militarization: [+ wa_militancy : militancy +]
 
 = Official military/paramilitaries
 
-Reichswehr: [+ reichswehr_strength +] thousand troops.
+Army: [+ army_strength +] thousand troops.
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
+Army Loyalty: [+ army_loyalty : loyalty +]
 
-Prussian police: [+ prussian_police_strength +] thousand members.
-
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
-
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+[? if dem_in_government : FBI loyalty: [+ fbi_loyalty : loyalty +] ?]
 
 @polls
 on-arrival: {!
@@ -158,36 +145,28 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 (if the election were to be held now):
 
-SPD: [+ spd_votes +]%
+DEM: [+ dem_votes +]%
 
-[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+PFLP: [+ pflp_votes +]%
 
-Z + BVP: [+ z_votes +]%
+CPUSA: [+ cpusa_votes +]%
 
-KPD: [+ kpd_votes +]%
+PROG: [+ prog_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
-
-DVP: [+ dvp_votes +]%
-
-DNVP: [+ dnvp_votes +]%
-
-NSDAP: [+ nsdap_votes +]%
-
-Others: [+ other_votes +]%
+REP: [+ rep_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: DEM: [+ workers_dem_display +]%, PFLP: [+ workers_pflp_display +]%, CPUSA: [+ workers_cpusa_display +]%, PROG: [+ workers_prog_display +]%, REP: [+ workers_rep_display +]%
 
-New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+Industrialists: DEM: [+ industrialist_dem_display +]%, PFLP: [+ industrialist_pflp_display +]%, CPUSA: [+ industrialist_cpusa_display +]%, PROG: [+ industrialist_prog_display +]%, REP: [+ indusrialist_prog_display +]%
 
-Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Middle Class: Dem: [+ middle_dem_display +]%, PFLP: [+ middle_pflp_display +]%, CPUSA: [+ middle_cpusa_display +]%, PROG: [+ middle_prog_display +]%, REP: [+ middle_rep_display +]%
 
-Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: Dem: [+ rural_dem_display +]%, PFLP: [+ rural_pflp_display +]%, CPUSA: [+ rural_cpusa_display +]%, PROG: [+ rural_prog_display +]%, REP: [+ rural_rep_display +]%
 
-Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: DEM: [+ unemployed_dem_display +]%, PFLP: [+ unemployed_pflp_display +]%, CPUSA: [+ unemployed_cpusa_display +]%, PROG: [+ unemployed_prog_display +]%, REP: [+ unemployed_rep_display +]%
 
-Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Southerners: DEM: [+ southerners_dem_display +]%, PFLP: [+ southerners_pflp_display +]%, CPUSA: [+ southerners_cpusa_display +]%, PROG: [+ southerners_prog_display +]%, REP: [+ southerners_prog_display +]%
 
 Support for the Republic: [+ pro_republic_disp +]%
