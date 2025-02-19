@@ -1,13 +1,13 @@
-title: Otto Wels
+title: John Nance Garner
 is-pinned-card: true
 tags: advisor, centrist
-card-image: img/portraits/WelsOtto.jpg
+card-image: img/portraits/JohnGarner.jpg
 view-if: wels_advisor = 1
 new-page: true
 
-= Otto Wels
+= John Nance Garner
 
-Wels is the long-time chairman of the SPD. He is a gifted organizer and a member of the centrist faction.
+Garner is the current Vice President and the voice of southern conservatives. Smith owes him a debt for delivering him the nomination in '32. A staunch segregationist, Garner would sooner resign than support legislation rolling back the South's draconian race laws
 
 - @clear_agenda
 - @party_discipline
