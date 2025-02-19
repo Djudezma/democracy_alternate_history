@@ -116,15 +116,15 @@ Democracy Brigade Militarization: [+ db_militancy : militancy +]
 
 {!<span class="tooltip-text" title="The RFO (Red Fighter's Organization) is a communist group associated with the CPUSA.">RFO</span>!} Strength: [+ rfo_strength_2 +] thousand
 
-RFB Militarization: [+ rfo_militancy : militancy +]
+RFo Militarization: [+ rfo_militancy : militancy +]
 
 {!<span class="tooltip-text" title="The Bonus Army 1917 is a right-wing organization of war veterans associated with the Progressive Party.">Bonus Army</span>!} Strength: [+ ba_strength_2 +] thousand
 
-Stahlhelm Militarization: [+ ba_militancy : militancy +]
+Bonus Army Militarization: [+ ba_militancy : militancy +]
 
 {!<span class="tooltip-text" title="The Wide Awakes are the Republican paramilitary.">Wide Awakes</span>!} Strength: [+ wa_strength_2 +] thousand
 
-SA Militarization: [+ wa_militancy : militancy +]
+Wide Awakes Militarization: [+ wa_militancy : militancy +]
 
 = Official military/paramilitaries
 
