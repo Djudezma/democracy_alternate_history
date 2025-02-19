@@ -132,6 +132,10 @@ Army: [+ army_strength +] thousand troops.
 
 Army Loyalty: [+ army_loyalty : loyalty +]
 
+New York Police: [+ nypd_strength +] thousand officers.
+
+New York Police Loyalty: [+ nypd_loyalty : loyalty +]
+
 [? if dem_in_government : FBI loyalty: [+ fbi_loyalty : loyalty +] ?]
 
 @polls
