@@ -110,19 +110,19 @@ if (Q.wa_strength) {
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="**Democracy Brigade: <q>Andrew Jackson</q>** is a popular organization for defending democracy affiliated with the Democratic Party as well as smaller democratic parties.">Jackson Brigades</span>!} Strength: [+ db_strength_2 +] thousand
+{!<span class="tooltip-text" title="Democracy Brigade: “Andrew Jackson” is a popular organization for defending democracy affiliated with the Democratic Party as well as smaller democratic parties.">Jackson Brigades</span>!} Strength: [+ db_strength_2 +] thousand
 
 Jackson Brigades Militarization: [+ db_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The **RFO (Red Fighter's Organization)** is a communist group associated with the CPUSA.">RFO</span>!} Strength: [+ rfo_strength_2 +] thousand
+{!<span class="tooltip-text" title="The RFO (Red Fighter's Organization) is a communist group associated with the CPUSA and based on the KPD's own paramilitary in Germany.">RFO</span>!} Strength: [+ rfo_strength_2 +] thousand
 
 RFO Militarization: [+ rfo_militancy : militancy +]
 
-{!<span class="tooltip-text" title="**Bonus Army 1917 - Front Line Brodies** is a right-wing organization of war veterans associated with the Progressive Party.">New Bonus Army</span>!} Strength: [+ ba_strength_2 +] thousand
+{!<span class="tooltip-text" title="The New Bonus Army is a right-wing organization of war veterans associated with the Progressive Party.">New Bonus Army</span>!} Strength: [+ ba_strength_2 +] thousand
 
 New Bonus Army Militarization: [+ ba_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The **Wide Awakes** are the Republican paramilitary.">Wide Awakes</span>!} Strength: [+ wa_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Wide Awakes are the Republican paramilitary.">Wide Awakes</span>!} Strength: [+ wa_strength_2 +] thousand
 
 Wide Awakes Militarization: [+ wa_militancy : militancy +]
 
