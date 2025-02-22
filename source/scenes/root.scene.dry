@@ -305,8 +305,8 @@ Q.economic_records = [];
 // State of the government
 Q.president = "Al Smith";
 // starting chancellor: Wilhelm Marx
-Q.chancellor = "Henry Thomas Rainey";
-Q.chancellor_party = 'DEM';
+Q.speaker = "Henry Thomas Rainey";
+Q.speaker_party = 'DEM';
 Q.dem_in_government = 1;
 Q.pflp_in_government = 0;
 Q.cpusa_in_government = 0;
