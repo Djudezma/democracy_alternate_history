@@ -7,16 +7,16 @@ set-jump: post_election
 @1934
 on-arrival: {!
 Q.workers = 46; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
+Q.industrialist = 13; // "old mittelstand"
 // 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
+Q.middle = 14; // "new mittelstand"
 Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
 // source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
 Q.unemployed = 8.6;
-Q.catholics = 30;
+Q.southerners = 30;
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
+Q.classes = ['workers', 'industrialist', 'middle', 'rural', 'unemployed', 'southerners'];
+Q.parties = ['dem', 'pflp', 'cpusa', 'prog', 'rep'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
@@ -51,10 +51,10 @@ Q.unemployed_prog = 0;
 Q.unemployed_rep = 37;
 
 Q.southerners_dem = 66;
-Q.catholics_pflp = 3;
-Q.catholics_cpusa = 0;
-Q.catholics_prog = 0;
-Q.catholics_rep = 31;
+Q.southerners_pflp = 3;
+Q.southerners_cpusa = 0;
+Q.southerners_prog = 0;
+Q.southerners_rep = 31;
 !}
 go-to: election_algorithm
 set-jump: post_election
